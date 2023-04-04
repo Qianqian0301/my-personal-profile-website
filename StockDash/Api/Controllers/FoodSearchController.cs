@@ -41,7 +41,7 @@ public class FoodSearchController : ControllerBase
         List<string> matchingFoods = new List<string>();
         foreach (string food in _foods)
         {
-            if (food.StartsWith(searchStr, StringComparison.OrdinalIgnoreCase))
+            if (food.Contains(searchStr))
             {
                 matchingFoods.Add(food);
             }
