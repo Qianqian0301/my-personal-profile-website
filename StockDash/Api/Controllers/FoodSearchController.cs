@@ -12,7 +12,7 @@ public class FoodSearchController : ControllerBase
     {
       _logger = logger;
     }
-    private static readonly List<string> _foods = new List<string> 
+    private static readonly List<string> foodList = new List<string> 
     {
         "Pizza",
         "Burgers",
@@ -39,7 +39,7 @@ public class FoodSearchController : ControllerBase
     public List<string> SearchFoods(string searchStr)
     {
         List<string> matchingFoods = new List<string>();
-        foreach (string food in _foods)
+        foreach (string food in foodList)
         {
             if (food.Contains(searchStr))
             {
