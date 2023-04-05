@@ -32,11 +32,28 @@ public class AnimalSearchController : ControllerBase
 
 
     [HttpGet(Name = "SearchAnimal")]
-    public List<Animal> SearchFoods(string Species, int? maxAge)
+    public List<Animal> SearchAnimal(string Species, int? maxAge)
     {
-        var resList = new List<Animal>();
-        
-        return resList;
 
+
+
+
+
+       var resList = new List<Animal>();
+        
+       
+
+        resList = _animalList.Where(animal => 
+        animal.Species == Species).ToList();
+      
+       
+        /// Filter by age > 5
+        // var oldAnimals = _animalList.Where(animal => animal.Age > 5);
+        
+        // foreach (var animal in oldAnimals)
+        // {
+        //     Console.WriteLine($"Name: {animal.Name}, Age: {animal.Age}, Species: {animal.Species}");
+        // }
+        return resList.ToList();
     }
 }
